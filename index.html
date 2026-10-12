@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Power House Electric — licensed C-10 electrician serving Chino, Chino Hills, Ontario, Pomona, Eastvale and the Inland Empire. Panel upgrades, EV chargers, lighting, outlets and troubleshooting. CSLB #1158711, bonded. Call or text (626) 485-7345.">
+<title>Power House Electric — Chino</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --page: #F8F8F7;
+    --page-deep: #EDEEEC;
+    --graphite: #24282B;
+    --graphite-deep: #15181A;
+    --hv: #E8601C;
+    --hv-soft: #F57C3C;
+    --copper: #B4703A;
+    --steel: #4D6A7D;
+    --ink: #1B1E21;
+    --ink-soft: #5D666D;
+    --line: #DCDEDB;
+    --card: #FFFFFF;
+    --img-bg: #E4E6E3;
+    --on-dark: #F2F3F1;
+    --on-accent: #FFFFFF;
+    --display: "Chakra Petch", "Segoe UI", Arial, sans-serif;
+    --body: "Manrope", "Segoe UI", Arial, sans-serif;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page: #141618;
+      --page-deep: #0E1011;
+      --graphite: #A8B4BC;
+      --graphite-deep: #C9D4DB;
+      --hv: #F57C3C;
+      --hv-soft: #E8601C;
+      --copper: #D08F58;
+      --steel: #7D9DB2;
+      --ink: #E7EAEC;
+      --ink-soft: #99A2A9;
+      --line: #272B2E;
+      --card: #1A1D20;
+      --img-bg: #232729;
+      --on-dark: #0E1011;
+      --on-accent: #141618;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #141618;
+    --page-deep: #0E1011;
+    --graphite: #A8B4BC;
+    --graphite-deep: #C9D4DB;
+    --hv: #F57C3C;
+    --hv-soft: #E8601C;
+    --copper: #D08F58;
+    --steel: #7D9DB2;
+    --ink: #E7EAEC;
+    --ink-soft: #99A2A9;
+    --line: #272B2E;
+    --card: #1A1D20;
+    --img-bg: #232729;
+    --on-dark: #0E1011;
+    --on-accent: #141618;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font-family: var(--body); font-size: 1.0625rem; line-height: 1.66;
+  }
+  a { color: var(--steel); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--hv); outline-offset: 3px; border-radius: 2px; }
+  img, svg { max-width: 100%; display: block; }
+
+  .wrap { max-width: 70rem; margin: 0 auto; padding: 0 1.25rem; }
+  .eyebrow {
+    font-family: var(--display); font-weight: 700; font-size: 0.78rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--hv); margin: 0 0 0.8rem;
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; color: var(--graphite-deep); text-wrap: balance; margin: 0; letter-spacing: -0.015em; }
+  h2 { font-size: clamp(1.95rem, 4.7vw, 2.6rem); line-height: 1.1; text-transform: uppercase; }
+  h3 { font-size: 1.16rem; }
+  p { margin: 0; }
+  section { padding: 4.4rem 0; scroll-margin-top: 4.5rem; }
+  .section-intro { max-width: 44em; margin-top: 0.95rem; color: var(--ink-soft); }
+
+  /* Header */
+  .site-head {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--page) 92%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+  }
+  header.site { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.66rem 0; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+  .brand .txt { font-family: var(--display); font-weight: 700; font-size: 1.22rem; line-height: 1; color: var(--graphite-deep); text-transform: uppercase; letter-spacing: -0.01em; }
+  .brand .txt small { display: block; font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: var(--hv); margin-top: 4px; }
+  nav.top { display: none; gap: 1.2rem; }
+  nav.top a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+  nav.top a:hover { color: var(--hv); }
+  .call-btn {
+    display: inline-block; background: var(--hv); color: var(--on-accent);
+    text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 0.95rem;
+    padding: 0.55rem 1.15rem; border-radius: 0.3rem; white-space: nowrap;
+  }
+  .call-btn:hover { background: var(--graphite); }
+  @media (min-width: 1020px) { nav.top { display: flex; } }
+  @media (max-width: 420px) { .brand .txt { font-size: 1.02rem; } }
+
+  /* Hero */
+  .hero { padding: 3.5rem 0 3.9rem; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -32% -14% auto 43%; height: 95%;
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--hv) 17%, transparent), transparent 66%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; gap: 2.4rem; align-items: center; position: relative; }
+  @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 3rem; } }
+  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.15rem; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 0.3rem;
+    padding: 0.32rem 0.85rem; font-weight: 600; font-size: 0.82rem; color: var(--ink-soft);
+  }
+  .pill.lic { border-color: var(--hv); color: var(--hv); }
+  .hero h1 { font-size: clamp(2.15rem, 5.6vw, 3.1rem); line-height: 1.05; text-transform: uppercase; }
+  .hero h1 .o { color: var(--hv); }
+  .hero .lede { margin-top: 1.15rem; font-size: 1.13rem; max-width: 33em; color: var(--ink-soft); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.8rem; }
+  .btn {
+    display: inline-block; text-decoration: none; font-family: var(--display);
+    font-weight: 700; font-size: 1rem; padding: 0.84rem 1.6rem; border-radius: 0.3rem;
+  }
+  .btn-solid { background: var(--hv); color: var(--on-accent); }
+  .btn-solid:hover { background: var(--hv-soft); }
+  .btn-ghost { border: 2px solid var(--graphite); color: var(--graphite); }
+  .btn-ghost:hover { border-color: var(--hv); color: var(--hv); }
+  .hero-note { margin-top: 1.25rem; font-size: 0.92rem; color: var(--ink-soft); }
+  .hero-photo { margin: 0; border-radius: 0.5rem; overflow: hidden; border: 1px solid var(--line); background: var(--img-bg); }
+  .hero-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+  /* Strip */
+  .strip { background: var(--graphite-deep); padding: 1.95rem 0; }
+  .strip-grid { display: grid; gap: 1.35rem; grid-template-columns: repeat(2, 1fr); text-align: center; }
+  @media (min-width: 780px) { .strip-grid { grid-template-columns: repeat(4, 1fr); } }
+  .strip-grid .n { font-family: var(--display); font-weight: 700; font-size: clamp(1.2rem, 2.9vw, 1.6rem); color: var(--hv-soft); line-height: 1.12; text-transform: uppercase; }
+  .strip-grid .l { margin-top: 0.3rem; font-size: 0.77rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--on-dark); opacity: 0.84; }
+  :root[data-theme="dark"] .strip { background: var(--card); }
+  :root[data-theme="dark"] .strip-grid .l { color: var(--ink); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .strip { background: var(--card); }
+    :root:not([data-theme="light"]) .strip-grid .l { color: var(--ink); }
+  }
+
+  /* Services */
+  .svc-grid { display: grid; gap: 1.15rem; margin-top: 2.4rem; }
+  @media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .svc-grid { grid-template-columns: repeat(3, 1fr); } }
+  .svc {
+    background: var(--card); border: 1px solid var(--line); border-radius: 0.45rem;
+    padding: 1.6rem 1.45rem; position: relative;
+  }
+  .svc::after {
+    content: ""; position: absolute; left: 1.45rem; right: 1.45rem; top: 0; height: 3px; background: var(--hv);
+  }
+  .svc .ico { color: var(--hv); margin-bottom: 0.8rem; }
+  .svc p { margin-top: 0.48rem; font-size: 0.94rem; color: var(--ink-soft); }
+
+  /* Call band */
+  .call-band {
+    margin-top: 2.1rem; background: var(--graphite-deep); border-radius: 0.5rem;
+    padding: 1.75rem 1.8rem; display: grid; gap: 1rem; align-items: center;
+  }
+  @media (min-width: 760px) { .call-band { grid-template-columns: 1fr auto; } }
+  .call-band h3 { color: var(--on-dark); font-size: 1.2rem; text-transform: uppercase; }
+  .call-band p { margin-top: 0.4rem; font-size: 0.96rem; color: var(--on-dark); opacity: 0.84; }
+  .call-band .btn-solid { background: var(--hv); color: #FFFFFF; }
+  .call-band .btn-solid:hover { background: var(--on-dark); color: var(--graphite-deep); }
+  :root[data-theme="dark"] .call-band { background: var(--card); border: 1px solid var(--line); }
+  :root[data-theme="dark"] .call-band h3,
+  :root[data-theme="dark"] .call-band p { color: var(--ink); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .call-band { background: var(--card); border: 1px solid var(--line); }
+    :root:not([data-theme="light"]) .call-band h3,
+    :root:not([data-theme="light"]) .call-band p { color: var(--ink); }
+  }
+
+  /* Process */
+  .process { background: var(--page-deep); }
+  .steps { display: grid; gap: 1.15rem; margin-top: 2.3rem; }
+  @media (min-width: 760px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 0.45rem; padding: 1.55rem 1.4rem; }
+  .step .n { font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: var(--hv); line-height: 1; }
+  .step h3 { margin-top: 0.5rem; font-size: 1.05rem; }
+  .step p { margin-top: 0.42rem; font-size: 0.93rem; color: var(--ink-soft); }
+
+  /* New business band */
+  .new-band {
+    background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--hv);
+    border-radius: 0.5rem; padding: 1.8rem 1.75rem; margin-top: 2.3rem;
+  }
+  .new-band h3 { font-size: 1.2rem; }
+  .new-band p { margin-top: 0.55rem; color: var(--ink-soft); max-width: 50em; }
+
+  /* Work */
+  .work-grid { display: grid; gap: 1rem; margin-top: 2.3rem; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 820px) { .work-grid { grid-template-columns: repeat(4, 1fr); } }
+  .shot { margin: 0; border: 1px solid var(--line); border-radius: 0.45rem; overflow: hidden; background: var(--card); }
+  .shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--img-bg); }
+  .shot figcaption { padding: 0.72rem 0.92rem; font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; }
+  .fine { margin-top: 1.3rem; font-size: 0.85rem; color: var(--ink-soft); }
+
+  /* Areas */
+  .areas { background: var(--page-deep); }
+  .area-grid { display: grid; gap: 0.72rem; margin-top: 2.1rem; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 700px) { .area-grid { grid-template-columns: repeat(4, 1fr); } }
+  .area {
+    background: var(--card); border: 1px solid var(--line); border-radius: 0.35rem;
+    padding: 0.9rem 0.75rem; text-align: center; font-weight: 600; font-size: 0.92rem; color: var(--graphite-deep);
+  }
+
+  /* Licensed */
+  .lic-wrap { display: grid; gap: 1.8rem; margin-top: 2.4rem; align-items: center; }
+  @media (min-width: 820px) { .lic-wrap { grid-template-columns: minmax(0, 300px) 1fr; gap: 2.7rem; } }
+  .lic-card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--hv); border-radius: 0.5rem; padding: 2rem 1.7rem; text-align: center; }
+  .lic-card .num { font-family: var(--display); font-weight: 700; font-size: 2rem; color: var(--hv); line-height: 1; font-variant-numeric: tabular-nums; }
+  .lic-card .lbl { margin-top: 0.45rem; font-weight: 600; font-size: 0.93rem; }
+  .lic-card .sub { margin-top: 0.4rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .lic-card a { display: inline-block; margin-top: 0.85rem; font-size: 0.88rem; font-weight: 600; }
+  .checks { margin: 1.2rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.66rem; }
+  .checks li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.97rem; }
+  .checks svg { flex: none; color: var(--hv); margin-top: 3px; }
+
+  /* Contact */
+  .contact-band { background: var(--graphite-deep); text-align: center; }
+  .contact-band .eyebrow { color: var(--hv-soft); }
+  .contact-band h2 { color: var(--on-dark); }
+  .contact-band .section-intro { color: var(--on-dark); opacity: 0.87; margin-inline: auto; }
+  .contact-band .hero-ctas { justify-content: center; }
+  .contact-band .btn-solid { background: var(--hv); color: #FFFFFF; }
+  .contact-band .btn-solid:hover { background: var(--on-dark); color: var(--graphite-deep); }
+  .contact-band .btn-ghost { border-color: var(--on-dark); color: var(--on-dark); }
+  .contact-band .btn-ghost:hover { border-color: var(--hv-soft); color: var(--hv-soft); }
+  .contact-band .fine { margin-top: 1.45rem; color: var(--on-dark); opacity: 0.84; font-size: 0.92rem; }
+  :root[data-theme="dark"] .contact-band { background: var(--page-deep); }
+  :root[data-theme="dark"] .contact-band h2,
+  :root[data-theme="dark"] .contact-band .section-intro,
+  :root[data-theme="dark"] .contact-band .fine { color: var(--ink); }
+  :root[data-theme="dark"] .contact-band .btn-ghost { border-color: var(--ink); color: var(--ink); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .contact-band { background: var(--page-deep); }
+    :root:not([data-theme="light"]) .contact-band h2,
+    :root:not([data-theme="light"]) .contact-band .section-intro,
+    :root:not([data-theme="light"]) .contact-band .fine { color: var(--ink); }
+    :root:not([data-theme="light"]) .contact-band .btn-ghost { border-color: var(--ink); color: var(--ink); }
+  }
+
+  /* Footer */
+  footer.site {
+    background: var(--page-deep); border-top: 1px solid var(--line);
+    color: var(--ink-soft); padding: 2.5rem 0; text-align: center; font-size: 0.9rem;
+  }
+  footer.site .fname { font-family: var(--display); font-weight: 700; font-size: 1.3rem; color: var(--graphite-deep); text-transform: uppercase; }
+  footer.site p { margin-top: 0.3rem; }
+  footer.site a { color: inherit; }
+  footer.site .fineprint { font-size: 0.78rem; max-width: 52em; margin: 0.9rem auto 0; }
+</style>
+</head>
+<body>
+
+<div class="site-head">
+  <div class="wrap">
+    <header class="site">
+      <a class="brand" href="#top" aria-label="Power House Electric home">
+        <svg width="32" height="34" viewBox="0 0 34 36" aria-hidden="true">
+          <path d="M17 2 L31 11.5 V33 H3 V11.5 Z" fill="none" stroke="#24282B" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M18.6 13 L12.6 22.4 h4.3 l-1 7.6 6.5-10.4 h-4.4 z" fill="#E8601C"/>
+        </svg>
+        <span class="txt">Power House<small>Electric</small></span>
+      </a>
+      <nav class="top" aria-label="Sections">
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#work">Our work</a>
+        <a href="#areas">Areas</a>
+        <a href="#licensed">Licensed</a>
+        <a href="#contact">Free estimate</a>
+      </nav>
+      <a class="call-btn" href="tel:+16264857345">Call (626) 485-7345</a>
+    </header>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pills">
+          <span class="pill lic">CSLB #1158711 &middot; C-10</span>
+          <span class="pill">Call or text</span>
+          <span class="pill">Free estimates</span>
+        </div>
+        <h1>Licensed electrician in <span class="o">Chino &amp; the Inland Empire.</span></h1>
+        <p class="lede">Power House Electric handles panel upgrades, EV charger installs, lighting, outlets and troubleshooting across Chino, Chino Hills, Ontario and the surrounding cities — licensed, bonded, and quoted before the work starts.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="tel:+16264857345">Call (626) 485-7345</a>
+          <a class="btn btn-ghost" href="sms:+16264857345">Text us</a>
+        </div>
+        <p class="hero-note">Licensed &amp; bonded &middot; Chino, CA &middot; owner-operated</p>
+      </div>
+      <figure class="hero-photo">
+        <img src="img/working.jpg" alt="Electrician working on a wall-mounted electrical box">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 2. STRIP ============ -->
+  <div class="strip">
+    <div class="wrap strip-grid">
+      <div><div class="n">C-10</div><div class="l">Electrical licence</div></div>
+      <div><div class="n">#1158711</div><div class="l">CSLB licensed</div></div>
+      <div><div class="n">$25,000</div><div class="l">Contractor's bond</div></div>
+      <div><div class="n">Owner-operated</div><div class="l">You get the licence holder</div></div>
+    </div>
+  </div>
+
+  <!-- ============ 3. SERVICES ============ -->
+  <section id="services">
+    <div class="wrap">
+      <p class="eyebrow">What we do</p>
+      <h2>Residential electrical, done to code.</h2>
+      <p class="section-intro">Everything a C-10 licence covers — from a dead outlet to a full panel replacement, permitted and inspected where the job calls for it.</p>
+      <div class="svc-grid">
+        <div class="svc">
+          <div class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
+          <h3>Panel upgrades</h3>
+          <p>Old fuse boxes and undersized panels replaced with a service that carries what a modern home actually draws.</p>
+        </div>
+        <div class="svc">
+          <div class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="12" height="11" rx="2"/><path d="M15 11h3.5a2 2 0 0 1 2 2v3a1.5 1.5 0 0 0 1.5 1.5"/><path d="M7 4v3M11 4v3"/></svg></div>
+          <h3>EV charger installation</h3>
+          <p>Level 2 home chargers on a dedicated circuit, with the panel checked for capacity before anything is ordered.</p>
+        </div>
+        <div class="svc">
+          <div class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V9a8 8 0 0 1 16 0v9"/><path d="M9 21h6"/><path d="M10 18v3M14 18v3"/></svg></div>
+          <h3>Lighting</h3>
+          <p>Recessed lighting, fixtures, dimmers, ceiling fans and outdoor lighting, switched the way you use the room.</p>
+        </div>
+        <div class="svc">
+          <div class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v10H4z"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/></svg></div>
+          <h3>Outlets &amp; switches</h3>
+          <p>New circuits, GFCI protection where code requires it, and dead outlets traced back to the actual fault.</p>
+        </div>
+        <div class="svc">
+          <div class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div>
+          <h3>Troubleshooting &amp; repairs</h3>
+          <p>Breakers that keep tripping, flickering circuits and faults that need finding before they get worse.</p>
+        </div>
+        <div class="svc">
+          <div class="ico" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8.5l7-5 7 5V21"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>Remodel wiring</h3>
+          <p>New circuits for additions, kitchens and garage conversions — planned with the build, not squeezed in at the end.</p>
+        </div>
+      </div>
+      <div class="call-band">
+        <div>
+          <h3>Call or text — either works</h3>
+          <p>Describe what is happening and you will get a straight answer on what is likely wrong and what it takes to fix.</p>
+        </div>
+        <div><a class="btn btn-solid" href="tel:+16264857345">Call (626) 485-7345</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. PROCESS ============ -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>Quoted before it is started.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="n">01</div>
+          <h3>Call or text</h3>
+          <p>Tell us the problem or the project. A lot of electrical faults can be narrowed down before anyone drives out.</p>
+        </div>
+        <div class="step">
+          <div class="n">02</div>
+          <h3>Free estimate</h3>
+          <p>We look at the real panel and the real wiring, then give you the price. You decide before any work begins.</p>
+        </div>
+        <div class="step">
+          <div class="n">03</div>
+          <h3>Done to code</h3>
+          <p>Carried out to current code, permitted and inspected where required, and tested before we leave.</p>
+        </div>
+      </div>
+
+      <div class="new-band">
+        <h3>A new company, not a new electrician</h3>
+        <p>Power House Electric is a newly licensed business, and that is exactly why the licence number is printed at the top of this page. Check it at cslb.ca.gov before you let anyone touch your panel — we would rather you did.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. WORK ============ -->
+  <section id="work">
+    <div class="wrap">
+      <p class="eyebrow">The work</p>
+      <h2>Panels, circuits and the rooms they serve.</h2>
+      <div class="work-grid">
+        <figure class="shot">
+          <img src="img/breakers.jpg" alt="Breaker panel with circuit wiring" loading="lazy">
+          <figcaption>Panels &amp; breakers</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/ev.jpg" alt="Electric vehicle charging cable plugged into a car" loading="lazy">
+          <figcaption>EV charging</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/lighting.jpg" alt="Pendant light fixture" loading="lazy">
+          <figcaption>Lighting</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/electrician.jpg" alt="Electrician on site" loading="lazy">
+          <figcaption>Service calls</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/kitchen.jpg" alt="Kitchen with task and pendant lighting" loading="lazy">
+          <figcaption>Kitchens</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/interior.jpg" alt="Open-plan living area" loading="lazy">
+          <figcaption>Living spaces</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/working.jpg" alt="Electrical repair in progress" loading="lazy">
+          <figcaption>Repairs &amp; diagnosis</figcaption>
+        </figure>
+      </div>
+      <p class="fine">These photographs illustrate the type of work offered. Photos of our own jobs will replace them as they are completed.</p>
+    </div>
+  </section>
+
+  <!-- ============ 6. AREAS ============ -->
+  <section id="areas" class="areas">
+    <div class="wrap">
+      <p class="eyebrow">Where we work</p>
+      <h2>Chino and the Inland Empire.</h2>
+      <p class="section-intro">Based in Chino, covering the surrounding cities across San Bernardino and Riverside counties.</p>
+      <div class="area-grid">
+        <div class="area">Chino</div>
+        <div class="area">Chino Hills</div>
+        <div class="area">Ontario</div>
+        <div class="area">Montclair</div>
+        <div class="area">Pomona</div>
+        <div class="area">Eastvale</div>
+        <div class="area">Corona</div>
+        <div class="area">Rancho Cucamonga</div>
+      </div>
+      <p class="fine">Somewhere else nearby? Call or text and ask.</p>
+    </div>
+  </section>
+
+  <!-- ============ 7. LICENSED ============ -->
+  <section id="licensed">
+    <div class="wrap">
+      <p class="eyebrow">Licensed &amp; bonded</p>
+      <h2>Check the licence before you let anyone near your panel.</h2>
+      <div class="lic-wrap">
+        <div class="lic-card">
+          <div class="num">1158711</div>
+          <div class="lbl">CSLB licence number</div>
+          <div class="sub">C-10 &mdash; Electrical<br>Active &middot; $25,000 bond</div>
+          <a href="https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx" rel="noopener">Verify at cslb.ca.gov &rarr;</a>
+        </div>
+        <div>
+          <p>California requires a contractor's licence for any electrical job over $500 in labour and materials. Unlicensed electrical work is the kind that fails an inspection, voids a home insurance claim, or quietly sits in a wall until something burns.</p>
+          <ul class="checks">
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Active C-10 licence</strong> — the classification specific to electrical work.</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>$25,000 contractor's bond</strong> with American Contractors Indemnity, on file with the state.</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Owner-operated</strong> — the person who holds the licence is the person doing the work.</span></li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Work to current code</strong>, permitted and inspected where the job requires it.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. CONTACT ============ -->
+  <section id="contact" class="contact-band">
+    <div class="wrap">
+      <p class="eyebrow">Free estimates</p>
+      <h2>Need an electrician in Chino?</h2>
+      <p class="section-intro">Call or text and tell us what the problem is. We will tell you what it takes to put right.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="tel:+16264857345">Call (626) 485-7345</a>
+        <a class="btn btn-ghost" href="sms:+16264857345">Text us</a>
+      </div>
+      <p class="fine">Chino, CA &middot; Inland Empire &middot; CSLB #1158711</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="fname">Power House Electric</p>
+    <p>Licensed C-10 electrical contractor &middot; Chino, California</p>
+    <p><a href="tel:+16264857345">(626) 485-7345</a></p>
+    <p>California CSLB licence #1158711 &middot; bonded &middot; Inland Empire</p>
+    <p class="fineprint">Licence number, classification and bond status are public record with the California Contractors State License Board and can be verified at cslb.ca.gov. Photographs on this page illustrate the type of work offered rather than specific completed jobs.</p>
+  </div>
+</footer>
+
+<script src="https://smb.airoxlab.com/api/t/script" defer></script>
+</body>
+</html>
